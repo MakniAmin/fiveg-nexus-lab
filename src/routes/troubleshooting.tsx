@@ -89,7 +89,7 @@ curl -s --http2-prior-knowledge http://127.0.0.10:7777/nnrf-nfm/v1/nf-instances
 sudo systemctl restart open5gs-upfd`,
     clues: ["\"NF not found\" / discovery failures → NF not registered with NRF", "Unit in failed state → read its journal for config parse errors", "Frequent restarts → check address conflicts in the YAML configs"],
     causes: ["YAML syntax or address error after a config edit", "NRF started after other NFs and registration did not retry", "MongoDB not running"],
-    verify: ["All open5gs-* units active", "NRF lists AMF, SMF, UPF-related SMF peers, AUSF, UDM and others", "Re-run registration and PDU tests"],
+    verify: ["All open5gs-* units active", "NRF lists AMF, SMF, AUSF, UDM and the other registered NFs", "Re-run registration and PDU tests"],
   },
 ];
 

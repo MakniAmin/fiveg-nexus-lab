@@ -33,7 +33,7 @@ const NODES: Record<NodeId, { x: number; y: number; title: string; desc: string 
 
 type Link = { a: NodeId; b: NodeId; label: string; plane: "cp" | "up" | "sbi" | "radio" };
 const LINKS: Link[] = [
-  { a: "UE", b: "gNB", label: "Uu (simulated radio)", plane: "radio" },
+  { a: "UE", b: "gNB", label: "Uu (sim)", plane: "radio" },
   { a: "gNB", b: "AMF", label: "N2 · NGAP/SCTP", plane: "cp" },
   { a: "SMF", b: "UPF", label: "N4 · PFCP", plane: "cp" },
   { a: "gNB", b: "UPF", label: "N3 · GTP-U", plane: "up" },

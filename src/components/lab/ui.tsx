@@ -12,7 +12,7 @@ const toneCls: Record<Tone, string> = {
   muted: "text-muted-foreground border-border bg-muted",
 };
 
-export function Pill({ tone = "muted", children, className }: { tone?: Tone; children: ReactNode; className?: string }) {
+export function Pill({ tone = "muted", children, className }: { tone?: Tone; children: ReactNode; className?: string | undefined }) {
   return (
     <span className={cn("inline-flex items-center gap-1 whitespace-nowrap rounded border px-1.5 py-0.5 font-mono text-[11px] font-medium uppercase", toneCls[tone], className)}>
       {children}
@@ -51,7 +51,7 @@ export function PageHeader({ title, subtitle, actions }: { title: string; subtit
   );
 }
 
-export function Panel({ title, right, children, className }: { title?: string; right?: ReactNode; children: ReactNode; className?: string }) {
+export function Panel({ title, right, children, className }: { title?: string; right?: ReactNode; children: ReactNode; className?: string | undefined }) {
   return (
     <section className={cn("panel", className)}>
       {title && (

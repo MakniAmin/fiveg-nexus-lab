@@ -94,7 +94,7 @@ sudo systemctl restart open5gs-upfd`,
 ];
 
 function Troubleshooting() {
-  const [id, setId] = useState(SCENARIOS[0].id);
+  const [id, setId] = useState("reg");
   const s = SCENARIOS.find((x) => x.id === id)!;
   return (
     <>

@@ -1,6 +1,17 @@
 import { Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
-import { Activity, Network, Users, Bell, Wrench, FlaskConical, Database, Info, RadioTower } from "lucide-react";
+import {
+  Activity,
+  Network,
+  Users,
+  Bell,
+  Wrench,
+  FlaskConical,
+  Database,
+  Info,
+  RadioTower,
+  GitBranch,
+} from "lucide-react";
 import { DataModeBadge } from "./ui";
 import { useLab } from "@/lib/lab/store";
 
@@ -8,6 +19,7 @@ const NAV = [
   { to: "/", label: "Overview", icon: Activity },
   { to: "/topology", label: "Topology", icon: Network },
   { to: "/sessions", label: "Sessions", icon: Users },
+  { to: "/signaling", label: "Signaling & Packets", icon: GitBranch },
   { to: "/events", label: "Events & Alarms", icon: Bell },
   { to: "/troubleshooting", label: "Troubleshooting", icon: Wrench },
   { to: "/tests", label: "Test Runs", icon: FlaskConical },
@@ -24,7 +36,9 @@ export function Shell({ children }: { children: ReactNode }) {
           <RadioTower className="h-5 w-5 shrink-0 text-primary" aria-hidden />
           <div className="min-w-0 leading-tight">
             <p className="truncate text-sm font-semibold">5G SA Core Lab</p>
-            <p className="truncate text-[11px] text-muted-foreground">Monitoring & Troubleshooting</p>
+            <p className="truncate text-[11px] text-muted-foreground">
+              Monitoring & Troubleshooting
+            </p>
           </div>
         </div>
         <nav aria-label="Main" className="flex-1 space-y-0.5 p-2">
@@ -51,12 +65,17 @@ export function Shell({ children }: { children: ReactNode }) {
         <header className="sticky top-0 z-20 border-b bg-background/95 backdrop-blur">
           <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-2.5 lg:px-6">
             <p className="truncate font-mono text-xs text-muted-foreground">
-              <span className="lg:hidden font-sans font-semibold text-foreground">5G SA Core Lab · </span>
-              PLMN 999/70 · Open5GS + UERANSIM (Ubuntu)
+              <span className="lg:hidden font-sans font-semibold text-foreground">
+                5G SA Core Lab ·{" "}
+              </span>
+              PLMN 001/01 · Open5GS + UERANSIM (Ubuntu)
             </p>
             <DataModeBadge />
           </div>
-          <nav aria-label="Main mobile" className="flex gap-1 overflow-x-auto border-t px-2 py-1.5 lg:hidden">
+          <nav
+            aria-label="Main mobile"
+            className="flex gap-1 overflow-x-auto border-t px-2 py-1.5 lg:hidden"
+          >
             {NAV.map(({ to, label }) => (
               <Link
                 key={to}

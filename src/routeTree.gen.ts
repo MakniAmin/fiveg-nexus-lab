@@ -14,6 +14,7 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as SessionsRouteImport } from './routes/sessions'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SignalingRouteImport } from './routes/signaling'
 import { Route as TestsRouteImport } from './routes/tests'
 import { Route as TopologyRouteImport } from './routes/topology'
 import { Route as TroubleshootingRouteImport } from './routes/troubleshooting'
@@ -43,6 +44,11 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SignalingRoute = SignalingRouteImport.update({
+  id: '/signaling',
+  path: '/signaling',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const TestsRoute = TestsRouteImport.update({
   id: '/tests',
   path: '/tests',
@@ -65,6 +71,7 @@ export interface FileRoutesByFullPath {
   '/events': typeof EventsRoute
   '/sessions': typeof SessionsRoute
   '/settings': typeof SettingsRoute
+  '/signaling': typeof SignalingRoute
   '/tests': typeof TestsRoute
   '/topology': typeof TopologyRoute
   '/troubleshooting': typeof TroubleshootingRoute
@@ -75,6 +82,7 @@ export interface FileRoutesByTo {
   '/events': typeof EventsRoute
   '/sessions': typeof SessionsRoute
   '/settings': typeof SettingsRoute
+  '/signaling': typeof SignalingRoute
   '/tests': typeof TestsRoute
   '/topology': typeof TopologyRoute
   '/troubleshooting': typeof TroubleshootingRoute
@@ -86,6 +94,7 @@ export interface FileRoutesById {
   '/events': typeof EventsRoute
   '/sessions': typeof SessionsRoute
   '/settings': typeof SettingsRoute
+  '/signaling': typeof SignalingRoute
   '/tests': typeof TestsRoute
   '/topology': typeof TopologyRoute
   '/troubleshooting': typeof TroubleshootingRoute
@@ -98,6 +107,7 @@ export interface FileRouteTypes {
     | '/events'
     | '/sessions'
     | '/settings'
+    | '/signaling'
     | '/tests'
     | '/topology'
     | '/troubleshooting'
@@ -108,6 +118,7 @@ export interface FileRouteTypes {
     | '/events'
     | '/sessions'
     | '/settings'
+    | '/signaling'
     | '/tests'
     | '/topology'
     | '/troubleshooting'
@@ -118,6 +129,7 @@ export interface FileRouteTypes {
     | '/events'
     | '/sessions'
     | '/settings'
+    | '/signaling'
     | '/tests'
     | '/topology'
     | '/troubleshooting'
@@ -129,6 +141,7 @@ export interface RootRouteChildren {
   EventsRoute: typeof EventsRoute
   SessionsRoute: typeof SessionsRoute
   SettingsRoute: typeof SettingsRoute
+  SignalingRoute: typeof SignalingRoute
   TestsRoute: typeof TestsRoute
   TopologyRoute: typeof TopologyRoute
   TroubleshootingRoute: typeof TroubleshootingRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/signaling': {
+      id: '/signaling'
+      path: '/signaling'
+      fullPath: '/signaling'
+      preLoaderRoute: typeof SignalingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/tests': {
       id: '/tests'
       path: '/tests'
@@ -201,6 +221,7 @@ const rootRouteChildren: RootRouteChildren = {
   EventsRoute: EventsRoute,
   SessionsRoute: SessionsRoute,
   SettingsRoute: SettingsRoute,
+  SignalingRoute: SignalingRoute,
   TestsRoute: TestsRoute,
   TopologyRoute: TopologyRoute,
   TroubleshootingRoute: TroubleshootingRoute,

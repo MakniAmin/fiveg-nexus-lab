@@ -30,3 +30,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Packet captures may contain sensitive lab and traffic metadata
+captures/*.pcap
+captures/*.pcapng
